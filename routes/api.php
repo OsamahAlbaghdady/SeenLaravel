@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Broadcast;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,7 @@ Route::controller(AuthController::class)->group(function (){
       Route::post('register' , 'register');
       Route::post('login' , 'login');
 });
+
+
+
+Broadcast::routes(['middleware' => ['auth:sanctum']]);

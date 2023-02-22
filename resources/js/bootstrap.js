@@ -9,8 +9,9 @@ window._ = _;
 
 import axios from 'axios';
 window.axios = axios;
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+console.log("hello");
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -18,10 +19,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo';
+import Echo from 'laravel-echo';
 
-// import Pusher from 'pusher-js';
-// window.Pusher = Pusher;
+import Pusher from 'pusher-js';
+window.Pusher = Pusher;
 
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
@@ -33,3 +34,31 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+
+
+// import Echo from "laravel-echo"
+
+// window.Pusher = require('pusher-js');
+
+var echo = window.Echo = new Echo({
+    broadcaster: 'pusher',
+    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
+    key: 'osamah',
+    wsHost: window.location.hostname,
+    wsPort: 6001,
+    forceTLS: false,
+    disableStats: true,
+    authEndpoint: "http://localhost:8000/api/broadcasting/auth",
+    auth: {
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer 2|ODINMONAQ8ELBAk0P6Uq7BfNvQsoHVVYaSbaj5Cf'
+        },
+    }
+});
+
+
+echo.connector.pusher.connection.bind('connected' , (e)=>{console.log(e)})
+
+echo.private('App.Models.User.1').notification((e)=>console.log(e))
