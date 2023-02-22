@@ -8,9 +8,11 @@
         "php": "^8.0.2",
         "beyondcode/laravel-websockets": "^1.14",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^2.7",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "php-ffmpeg/php-ffmpeg": "^1.1",
         "pusher/pusher-php-server": "~4.0"
     },
     "require-dev": {
