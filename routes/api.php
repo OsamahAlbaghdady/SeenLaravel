@@ -47,15 +47,15 @@ Route::post(
 
 
         $ffmpeg = FFMpeg::create([
-            'ffmpeg.binaries'  => '/usr/bin/ffmpeg',
-            'ffprobe.binaries' => '/usr/bin/ffprobe',
+            'ffmpeg.binaries'  => '/opt/homebrew/bin/ffmpeg',
+            'ffprobe.binaries' => '/opt/homebrew/bin/FFProbe',
             // 'ffmpeg.nvenc'     => true, // Enable NVIDIA GPU acceleration
             // 'ffmpeg.nvenc_device' => '/dev/nvidia0' // Specify the NVIDIA GPU device
 
         ]);
         $ffprobe = FFProbe::create([
-            'ffmpeg.binaries'  => '/usr/bin/ffmpeg',
-            'ffprobe.binaries' => '/usr/bin/ffprobe',
+            'ffmpeg.binaries'  => '/opt/homebrew/bin/ffmpeg',
+            'ffprobe.binaries' => '/opt/homebrew/bin/FFProbe',
             // 'ffmpeg.nvenc'     => false, // Enable NVIDIA GPU acceleration
             // 'ffmpeg.nvenc_device' => '/dev/nvidia0' // Specify the NVIDIA GPU device
 
